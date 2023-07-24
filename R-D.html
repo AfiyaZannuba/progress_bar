@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.main-container {
+    width: 300px;
+    height: 30px;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.inner-container {
+    width: 0%;
+    height: 100%;
+    background-color: pink;
+    transition: width 1.5s ease;
+    border-radius: 5px;
+}
+
+span {
+    color: black;
+}
+</style>
+<body>
+    <div class="main-container">
+        <div class="inner-container">
+            <span class="text">0%</span>
+        </div><br />
+        <button id="btn" onclick="update()">increment</button>
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        const text = document.querySelector(".text");
+        let widthPercentage = 0; // Initial width percentage
+
+        function update() {
+            const inner = document.querySelector(".inner-container");
+            widthPercentage += 20; // Increment the width by 20% on each click
+
+            if (widthPercentage > 100) {
+                widthPercentage = 100; // Limit the width to 100%
+            }
+
+            inner.style.width = widthPercentage + "%";
+            text.textContent = inner.style.width;
+        }
+
+    </script>
+</body>
+</html>

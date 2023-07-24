@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Bar</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #e3edf7;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .skill{
+        width: 160px;
+        height: 160px;
+        position: relative;
+    }
+    .outer{
+        height: 160px;
+        width: 160px;
+      
+        border-radius: 50%;
+        padding: 20px;
+
+        box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    }
+
+    .inner{
+        height: 120px;
+        width: 120px;
+      
+        border-radius: 50%;
+        box-shadow: inset 4px 4px 6px -1px rgba(0,0,0.15), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.05);
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+    }
+
+    #number{
+        font-weight: 600;
+        color: #555;
+font-size: 30px;
+    }
+
+    circle{
+        fill: none;
+        stroke: url(#GradientColor);
+        stroke-width: 20px;
+        stroke-dasharray: 450;
+        stroke-dashoffset: 450;
+        animation : anim 2s linear forwards;
+
+    }
+
+    @keyframes anim{
+        100%{
+            stroke-dashoffset: 157.5; 
+            /* 450- (450 * (65/100)) */
+        }
+    }
+
+    svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+</style>
+<body>
+    <div class="skill">
+<div class="outer">
+<div class="inner">
+    <div id="number">
+    </div>
+</div>
+</div>
+<svg xmlns: "http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+    <defs>
+    <linearGradient id="GradientColor">
+    <stop offset="0%" stop-color="#DA22FF" />
+    <stop offset="100%" stop-color="#9733EE" />
+    </linearGradient>
+    </defs>
+    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+    </svg>
+    </div>
+    <script>
+        const number = document.getElementById("number");
+        let counter = 0;
+
+        setInterval(()=> {
+            if(counter == 65){
+                clearInterval;
+            }else{
+            counter +=1;
+            number.innerHTML = `${counter}%`;
+            }
+        }, 30);
+    </script>
+</body>
+</html>

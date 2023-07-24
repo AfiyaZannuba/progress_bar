@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<style>
+    .container{
+    height: 25px;
+    background-color: #CCC;
+    position: relative;
+    border-radius: 7px;
+}
+
+.container .progress-bar{
+    position: absolute;
+    border-radius: 7px;
+    height: 100%;
+    background-color: rgb(125, 44, 255);
+   
+}
+#play-animation{
+    animation: progress-animation 10s forwards;
+}
+@keyframes progress-animation{
+    0%{ width: 0%;}
+    50%{width: 50%;}
+    100%{width: 100%;}
+}
+</style>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+        </div>
+    </div>
+    <button onclick="upload()">upload</button>
+    <script>
+        // alert("hello");
+
+const upload = () => {
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.setAttribute("id", "play-animation");
+}
+    </script>
+</body>
+</html>
